@@ -31,17 +31,17 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     }
 
     // call the model and update the state
-    state.data = model.getStoredData();
+    //state.data = model.getStoredData();
 
     // use passed state if is necessary
     CounterToClicksState savedState = getStateFromPreviousScreen();
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.data);
+//      model.onDataFromPreviousScreen(savedState.data);
 
       // update the state if is necessary
-      state.data = savedState.data;
+//      state.data = savedState.data;
     }
   }
 

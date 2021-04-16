@@ -8,7 +8,7 @@ public class CounterModel implements CounterContract.Model {
 
     private String data;
 
-    public int countGeneral;
+    public int countGeneral = 0;
 
     public CounterModel(String data) {
         this.data = data;
@@ -38,6 +38,27 @@ public class CounterModel implements CounterContract.Model {
 
     @Override
     public void setCount(int count) {
-      countGeneral = count;
+        countGeneral = count;
+    }
+
+    @Override
+    public boolean isLastCount() {
+        if (countGeneral < 10) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+
+    @Override
+    public void updateCount() {
+        if(isLastCount()) {
+            countGeneral++;
+        }else{
+            countGeneral = 0;
+        }
+        setCount(countGeneral);
     }
 }

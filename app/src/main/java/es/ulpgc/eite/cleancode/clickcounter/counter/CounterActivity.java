@@ -92,8 +92,12 @@ public class CounterActivity
   public void onDataUpdated(CounterViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
-    // deal with the data
-    ((TextView) findViewById(R.id.tvCounter)).setText(viewModel.data);
+    // deal with the dat
+    ((TextView) findViewById(R.id.tvCounter)).setText(viewModel.count);
+
+    findViewById(R.id.btnIncrement).setEnabled(viewModel.countEnable);
+    findViewById(R.id.btnReset).setEnabled(viewModel.resetEnable);
+    findViewById(R.id.btnClicks).setEnabled(viewModel.resetEnable);
   }
 
   @Override
