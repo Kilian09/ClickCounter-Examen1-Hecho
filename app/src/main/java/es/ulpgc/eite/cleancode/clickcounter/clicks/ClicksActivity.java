@@ -70,8 +70,10 @@ public class ClicksActivity
   public void onDataUpdated(ClicksViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
-    // deal with the data
-    ((TextView) findViewById(R.id.tvClicks)).setText(viewModel.data);
+    // deal with the dat
+    ((TextView) findViewById(R.id.tvClicks)).setText(viewModel.clickCount);
+
+    findViewById(R.id.btnClear).setEnabled(viewModel.clearEnabled);
   }
 
   @Override

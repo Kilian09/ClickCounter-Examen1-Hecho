@@ -35,6 +35,7 @@ public class CounterPresenter implements CounterContract.Presenter {
         // call the model and update the state
         state.count = String.valueOf(model.getCount());
         state.countEnable = true;
+        state.clicksEnable = false;
         state.resetEnable = false;
 
         view.get().onDataUpdated(state);
@@ -108,7 +109,7 @@ public class CounterPresenter implements CounterContract.Presenter {
     @Override
     public void onClicksPressed() {
         // Log.e(TAG, "onClicksPressed()");
-        int clicks = model.getCount();
+        int clicks = model.getClickCount();
         CounterToClicksState newState = new CounterToClicksState(clicks);
         passStateToNextScreen(newState);
         view.get().navigateToNextScreen();
@@ -118,18 +119,37 @@ public class CounterPresenter implements CounterContract.Presenter {
     @Override
     public void onResetPressed() {
         // Log.e(TAG, "onResetPressed()");
+
+        model.resetCount();
+        int Count = model.getCount();
+
+        state.count = String.valueOf(Count);
+        state.resetEnable = false;
+
+        view.get().onDataUpdated(state);
     }
 
     @Override
     public void onIncrementPressed() {
         // Log.e(TAG, "onIncrementPressed()");
+        if (model.isLastCount()) {
 
-        model.updateCount();
+            model.updateCount();
+
+            state.resetEnable = true;
+
+        } else {
+            model.resetCount();
+
+            state.resetEnable = false;
+        }
+
+        model.clickCount();
+
+        state.clicksEnable = true;
 
         int Count = model.getCount();
-
         state.count = String.valueOf(Count);
-        state.resetEnable = true;
 
         view.get().onDataUpdated(state);
     }

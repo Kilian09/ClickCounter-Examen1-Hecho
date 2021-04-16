@@ -7,4 +7,5 @@ public class CounterViewModel {
 
   public boolean resetEnable;
   public boolean countEnable;
+  public boolean clicksEnable;
 }

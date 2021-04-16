@@ -34,11 +34,18 @@ public interface CounterContract {
     void onRestartScreen(String data);
     void onDataFromPreviousScreen(String data);
     int getCount();
+
+    int getClickCount();
+
     void setCount(int count);
 
     boolean isLastCount();
 
     void updateCount();
+
+    void resetCount();
+
+    void clickCount();
   }
 
 }

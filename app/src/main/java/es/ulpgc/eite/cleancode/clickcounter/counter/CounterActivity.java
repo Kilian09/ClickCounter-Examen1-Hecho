@@ -97,7 +97,7 @@ public class CounterActivity
 
     findViewById(R.id.btnIncrement).setEnabled(viewModel.countEnable);
     findViewById(R.id.btnReset).setEnabled(viewModel.resetEnable);
-    findViewById(R.id.btnClicks).setEnabled(viewModel.resetEnable);
+    findViewById(R.id.btnClicks).setEnabled(viewModel.clicksEnable);
   }
 
   @Override

@@ -10,6 +10,8 @@ public class CounterModel implements CounterContract.Model {
 
     public int countGeneral = 0;
 
+    public int clickCount = 0;
+
     public CounterModel(String data) {
         this.data = data;
     }
@@ -35,6 +37,11 @@ public class CounterModel implements CounterContract.Model {
         return countGeneral;
     }
 
+    @Override
+    public int getClickCount() {
+        return clickCount;
+    }
+
 
     @Override
     public void setCount(int count) {
@@ -43,10 +50,9 @@ public class CounterModel implements CounterContract.Model {
 
     @Override
     public boolean isLastCount() {
-        if (countGeneral < 10) {
+        if (countGeneral < 9) {
             return true;
         }
-
         return false;
 
     }
@@ -54,11 +60,17 @@ public class CounterModel implements CounterContract.Model {
 
     @Override
     public void updateCount() {
-        if(isLastCount()) {
-            countGeneral++;
-        }else{
-            countGeneral = 0;
-        }
-        setCount(countGeneral);
+        countGeneral++;
+    }
+
+    @Override
+    public void resetCount() {
+        countGeneral = 0;
+
+    }
+
+    @Override
+    public void clickCount(){
+        clickCount++;
     }
 }

@@ -31,5 +31,7 @@ public interface ClicksContract {
       int getCountClicks();
 
     void setCountClicks(int count);
+
+      void resetClicks();
   }
 }
