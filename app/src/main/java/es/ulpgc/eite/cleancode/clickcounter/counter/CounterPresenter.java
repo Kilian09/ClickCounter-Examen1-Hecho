@@ -72,10 +72,11 @@ public class CounterPresenter implements CounterContract.Presenter {
         if (savedState != null) {
 
             // update the model if is necessary
-            model.onDataFromNextScreen(savedState.data);
 
+            state.clicks = String.valueOf(savedState.clicks);
             // update the state if is necessary
-            //  state.data = savedState.data;
+
+            model.setClickCount(Integer.parseInt(state.clicks));
         }
 
         // call the model and update the state
@@ -83,9 +84,9 @@ public class CounterPresenter implements CounterContract.Presenter {
         int Count = Integer.parseInt(state.count);
         model.setCount(Count);
 
+
+
         // update the view
-
-
         view.get().onDataUpdated(state);
 
     }
@@ -94,6 +95,7 @@ public class CounterPresenter implements CounterContract.Presenter {
     @Override
     public void onBackPressed() {
         // Log.e(TAG, "onBackPressed()");
+
     }
 
     @Override

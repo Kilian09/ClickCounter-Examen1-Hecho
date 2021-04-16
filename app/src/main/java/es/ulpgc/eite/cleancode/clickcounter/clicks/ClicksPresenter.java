@@ -69,6 +69,10 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     @Override
     public void onBackPressed() {
         // Log.e(TAG, "onBackPressed()");
+
+        int clicks = model.getCountClicks();
+        ClicksToCounterState newState = new ClicksToCounterState(clicks);
+        passStateToPreviousScreen(newState);
     }
 
     @Override

@@ -49,6 +49,11 @@ public class CounterModel implements CounterContract.Model {
     }
 
     @Override
+    public void setClickCount(int clickCount) {
+        this.clickCount = clickCount;
+    }
+
+    @Override
     public boolean isLastCount() {
         if (countGeneral < 9) {
             return true;

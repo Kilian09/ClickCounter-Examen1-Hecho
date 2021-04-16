@@ -39,7 +39,9 @@ public interface CounterContract {
 
     void setCount(int count);
 
-    boolean isLastCount();
+      void setClickCount(int clickCount);
+
+      boolean isLastCount();
 
     void updateCount();
 
